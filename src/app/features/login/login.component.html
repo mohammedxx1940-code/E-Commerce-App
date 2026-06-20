@@ -1,0 +1,221 @@
+<main class="container py-16 mx-auto px-4">
+    <aside class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+        <section class="block">
+            <div class="text-center space-y-6">
+                <img src="https://download.logo.wine/logo/O_Shopping/O_Shopping-Logo.wine.png" 
+                alt="Shopping Logo" class="w-full h-98 object-cover rounded-2xl shadow-xl shadow-red-500
+                ">
+                <div class="space-y-4">
+                    <h2 class="text-3xl font-bold text-red-500">
+                        FreshCart - Your One-Stop Shop for Fresh Products
+                    </h2>
+                    <p class="text-xl text-gray-700">
+                        Join thousands of happy customers who trust FreshCart for their daily grocery 
+                        needs
+                    </p>
+                    <div class="flex items-center justify-center gap-8 text-lg text-gray-500">
+                        <div class="space-x-2">
+                            <i class="fa-solid fa-truck text-red-500"></i>
+                            <span>Free Deliver</span>
+                        </div>
+                        <div class="space-x-2">
+                            <i class="fa-solid fa-shield-halved text-red-500"></i>
+                            <span>Secure Payment</span>
+                        </div>
+                        <div class="space-x-2">
+                            <i class="fa-solid fa-clock text-red-500"></i>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w-full rounded-2xl shadow-xl shadow-red-500 p-8 lg:p-9">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="text-4xl font-bold text-red-500">
+                        Fresh
+                        <label class="text-gray-800">Cart</label>
+                    </span>
+                </div>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome Back!</h2>
+                <p class="text-gray-600 text-2xl">Sign in to continue your fresh shopping experience</p>
+            </div>
+            <div class="grid gap-3 mb-6">
+                <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
+                hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
+                disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
+                text-xl rounded-2xl"
+                aria-label="Sign up with Google">
+                  <i class="fa-brands fa-google"></i>
+                  <span>Google</span> 
+                </button>
+                <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
+                hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
+                disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
+                text-xl rounded-2xl"
+                aria-label="Sign up with Facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                  <span>Facebook</span> 
+                </button>
+            </div>
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t-2 border-red-500"></div>
+                </div>
+                <div class="relative flex justify-center text-lg">
+                    <span class="px-4 bg-white text-gray-700 font-medium">
+                        OR CONTINUE WITH EMAIL</span>
+                </div>
+            </div>
+            <form class="space-y-6" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+                @if (errorMsg()) {
+                    <div class="px-5 py-10 bg-red-600 text-white fixed end-10 top-15 text-2xl 
+                    cursor-pointer flex justify-center flex-col z-40" #er (click)="getHide(er)">
+                       <div class="flex gap-2 text-2xl items-center font-bold">
+                        <span class=" bg-white text-red-600 rounded-full size-5 flex justify-center
+                         items-center text-sm"><i class="fa-solid fa-exclamation"></i></span>
+                         <span>Error</span>
+                        </div>
+                       <span class="text-xl">{{errorMsg()}}</span>
+                    </div>
+                }
+                @let emailController = loginForm.get('email');
+                <div class="space-y-2">
+                    <label for="email" class="block text-2xl font-semibold mb2">Email Address</label>
+                    <div class="relative">
+                        <input type="email" 
+                        formControlName="email"
+                        [class.!border-green-500]="emailController?.valid && emailController?.touched"  
+                        [class.!border-red-500]="emailController?.errors && emailController?.touched"
+                        name="email" id="email" class="w-full px-4 py-3 ps-12 border-2
+                        border-blue-700 rounded-xl focus:outline-none focus:border-blue-900 
+                        transition-all focus:ring-2 focus:ring-blue-300 text-2xl" 
+                        placeholder="Enter your email">
+                        <i class="fa-solid fa-envelope text-gray-400 absolute start-3 top-1/2
+                        -translate-y-1/2 text-2xl"></i>
+                        @if (emailController?.invalid && emailController?.touched){
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                        }
+                        @if (emailController?.valid && emailController?.touched){
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                        }
+                    </div>
+                    @if (emailController?.errors && emailController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(emailController?.hasError('required')){
+                                <li>Email is required</li>
+                            }
+                            @if(emailController?.hasError('email')){
+                                <li>Email is required</li>
+                            }
+                        </ul>
+                    </app-alert>
+                    }
+                </div>
+                <div class="space-y-2">
+                    @let passwordController = loginForm.get('password');
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="password" class="block text-2xl font-semibold">Password</label>
+                        <a href="/forget-password" class="text-2xl text-red-500 hover:text-red-700
+                        cursor-pointer font-medium">Forget Password?</a>
+                    </div>
+                    <div class="relative">
+                        <input type="password" 
+                        formControlName="password" #pass
+                        [class.!border-green-500]="passwordController?.valid && passwordController?.touched"
+                        [class.!border-red-500]="passwordController?.errors && passwordController?.touched"
+                        name="password" id="password" 
+                        class="w-full px-4 py-3 ps-12 border-2
+                        border-blue-700 rounded-xl focus:outline-none focus:border-blue-900 
+                        transition-all focus:ring-2 focus:ring-blue-300 text-2xl" 
+                        placeholder="Enter your password">
+                        <i class="fa-solid fa-lock text-gray-400 absolute start-3 top-1/2
+                        -translate-y-1/2 text-2xl"></i>
+                        @if (passwordController?.invalid && passwordController?.touched){
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                        }
+                        @else if (passwordController?.valid && passwordController?.touched){
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-green-500
+                         text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                        <i class="fa-solid absolute end-10 top-1/2 -translate-1/2 active:scale-[.7] 
+                        transition-all duration-300 text-2xl" 
+                        (click)="pass.type == 'text' ? pass.setAttribute('type' 
+                        , 'password') : pass.setAttribute('type' , 'text')" 
+                        [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                        }
+                        @else{
+                        <i class="fa-solid absolute end-3 top-1/2 -translate-1/2 active:scale-[.7] 
+                        transition-all duration-300 text-2xl" 
+                        (click)="pass.type == 'text' ? pass.setAttribute('type' 
+                        , 'password') : pass.setAttribute('type' , 'text')" 
+                        [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                        }
+                    </div>
+                    @if (passwordController?.errors  && passwordController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(passwordController?.hasError('required')){
+                                <li>Password is required</li>
+                            }
+                            @if(passwordController?.hasError('minlength')){
+                                <li>Password pattern error !!!</li>
+                            }
+                        </ul>
+                    </app-alert>
+                    }
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="checkbox" class="size-5 text-red-500 text-2xl
+                         accent-red-500 appearance-none rounded-2xl focus:outline-none focus:ring-2
+                          focus:ring-red-300">
+                        <span class="ms-3 text-xl text-gray-600">Keep me signed in</span>
+                    </label>
+                </div>
+                <button [disabled]="loading()" 
+                type="submit" class="w-full bg-red-500 text-white py-3 px-4 rounded-xl
+                hover:bg-red-700 transition-all duration-200 font-semibold text-2xl shadow-lg
+                hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"> 
+                  @if (loading()) {
+                    Loading.... <i class="fa fa-spinner fa-spin"></i>
+                   }@else {
+                    Sign In
+                   }
+                </button>
+            </form>
+            <div class="text-center mt-8 pt-6 border-t-2 border-red-500 text-lg">
+                <p class="text-gray-600">New to FreshCart?
+                    <a routerLink="/register" class="text-red-500 hover:text-red-700
+                    ms-2 font-semibold cursor-pointer">Create an account</a>
+                </p>
+            </div>
+            <div class="flex items-center justify-center gap-5 mt-6 text-lg text-gray-500">
+                <div class="space-x-2">
+                    <i class="fa-solid fa-lock text-red-500"></i>
+                    <span>SSL Secured</span>
+                </div>
+                <div class="space-x-2">
+                    <i class="fa-solid fa-user text-red-500"></i>
+                    <span>50K+ Users</span>
+                </div>
+                <div class="space-x-2">
+                    <i class="fa-solid fa-star text-red-500"></i>
+                    <span>4.9 Rating</span>
+                </div>
+            </div>
+        </section>
+    </aside>
+</main>
+@if (animation) {
+    <app-loader></app-loader>
+}

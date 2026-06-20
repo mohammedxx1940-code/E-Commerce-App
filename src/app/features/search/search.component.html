@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto py-8">
+    <div class="grid lg:grid-cols-5 gap-4">
+        @for (product of filteredProducts(); track product._id) {
+            <app-product-card [product]="product"></app-product-card>
+        }
+    </div>
+    @if(filteredProducts().length == 0){
+        <h2 class="text-center text-red-500 text-4xl"></h2>
+    }
+</div>
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

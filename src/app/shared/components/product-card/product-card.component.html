@@ -1,0 +1,87 @@
+<div class="bg-white border border-red-500 rounded-lg overflow-hidden shadow-sm shadow-red-500
+      transform-none hover:shadow-xl hover:-translate-y-1">
+        <div class="relative">
+          <img [src]="product().imageCover" [alt]="product().title"
+          class="w-full object-contain bg-white h-[300px]">
+          <div class="absolute top-3 end-3 flex flex-col space-y-2">
+            <button (click)="toggleWishlist()"
+            class="bg-white size-8 rounded-full flex justify-center items-center transition
+             shadow-md cursor-pointer">
+              @if (isWishlist()) {
+                <i class="fa-solid fa-heart text-red-500 hover:text-red-700"></i>
+              } @else {
+                <i class="fa-regular fa-heart text-blue-500 hover:text-blue-700"></i>
+              }
+            </button>
+            <a routerLink="/products" class="bg-white size-8 rounded-full flex justify-center items-center 
+            transition shadow-md text-black hover:text-red-500">
+            <i class="fa-solid fa-arrow-rotate-left"></i></a>
+            <a [routerLink]="[`/shop/${product().id}`]" class="bg-white size-8 rounded-full flex 
+            justify-center items-center transition shadow-md text-black hover:text-red-500"> 
+            <i class="fa-solid fa-eye"></i></a> 
+          </div> 
+          <div class="absolute top-3 start-3">
+             <span class="bg-red-500 text-white text-lg px-2 py-1 rounded bdg" 
+             [class.hidden]="!product().priceAfterDiscount">
+             -{{(((product().price - product().priceAfterDiscount!) / product().price) * 100)
+              |  number : '1.0-0'}}%</span>  
+          </div>  
+        </div>
+        <div class="p-4">
+          <div class="text-xl text-red-500 mb-1">{{product().category.name}}</div>
+          <h3 class="font-medium mb-2 cursor-pointer" [title]="product().title">
+            <a [routerLink]="['/shop' , product().id]" class="line-clamp-2 text-lg">
+              {{product().title}}</a>
+          </h3>
+          <div class="flex items-center mb-2">
+            <div class=" me-2 text-yellow-400">
+              @for (item of [1,2,3,4,5]; track $index) {
+                @if (item <= getStarCalc(product().ratingsAverage)){
+                  <i class="fa-solid fa-star"></i> 
+                }
+                @if (item - 0.5 === getStarCalc(product().ratingsAverage)){
+                  <i class="fa-solid fa-star-half-alt"></i> 
+                }
+                @if (item > getStarCalc(product().ratingsAverage) 
+                && item - 0.5 !== getStarCalc(product().ratingsAverage)){ 
+                  <i class="fa-regular fa-star"></i> 
+                }
+              }
+            </div>
+            <span class="text-lg text-gray-600 space-x-0.5">
+              <label>{{product().ratingsAverage}}</label>
+              <label>({{product().ratingsQuantity}})</label> 
+            </span>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <div class="p-1 text-white rounded-md" 
+            [class]="{
+              'hidden' : !product().priceAfterDiscount ,
+              'bg-red-300' : product().priceAfterDiscount
+            }
+            ">
+             <span class="text-black line-through text-sm">
+                {{product().price |  number : ''}} EGP</span> 
+             <span class="text-lg ms-1 text-red-500 font-bold">
+              {{product().priceAfterDiscount |  number : ''}} EGP</span>
+            </div>
+            <div [class.hidden]="product().priceAfterDiscount">
+              <span class="text-red-500 text-lg font-bold">
+                {{product().price  |  number : ''}} EGP</span>
+            </div>
+            <button (click)="addProductToUserCart()" 
+            [disabled]="loading()"
+            class="size-10 rounded-full flex justify-center items-center transition bg-red-500 
+            text-white hover:bg-red-700 disabled:opacity-70 cursor-pointer">
+              @if (loading()) {
+                  <i class="fa fa-spinner fa-spin"></i>
+              }@else {
+                <i class="fa-solid" [class.fa-plus]="!success()" [class.fa-check]="success()"></i>
+              }
+            </button>
+          </div> 
+        </div>
+</div>
+@if(spinner){ 
+  <app-global-spinner></app-global-spinner>
+} 

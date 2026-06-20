@@ -1,0 +1,152 @@
+@if(isAnimation()) {  
+    <div class="min-h-[400px] relative">
+     <div class="absolute top-1/4 start-1/2 -translate-x-1/2 
+      flex flex-col items-center gap-6">
+        <i class="fa-solid fa-spinner fa-spin text-4xl text-red-500"></i>
+        <span class="text-3xl text-blue-700">Loading......</span>
+      </div>
+    </div> 
+}@else {
+  <div class="space-y-6">
+    <div class="mb-6">
+        <h5>Account Settings</h5>
+        <p class="text-mohammed-500 text-lg mt-1">Update your profile information and change your
+             password</p>
+    </div>
+    <div class="bg-white rounded-3xl border-2 border-hussein shadow-md shadow-hussein
+    overflow-hidden">
+       <div class="p-6 sm:p-8 border-b-2 border-mohammed-500">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-14 rounded-2xl bg-red-100 flex items-center justify-center
+            text-hussein">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div>
+                <h6 class="font-bold text-mohammed-500 text-xl">Profile Information</h6>
+                <p class="text-lg text-hussein">Update your personal details</p>
+            </div>
+        </div>
+        <form class="space-y-5" [formGroup]="profileForm" (ngSubmit)="updateUser()">
+            @if (successMsg()){
+                <div class="bg-green-700 text-green-100 rounded-lg mb-6 text-xl p-4
+                font-medium border-2 border-green-300">{{successMsg()}}</div>
+            }
+            @if (errorMsg()){
+                <div class="bg-red-700 text-red-100 rounded-lg mb-6 text-xl p-4
+                font-medium border-2 border-red-300">{{errorMsg()}}</div>
+            }
+            <div>
+                <label for="name" class="block text-xl font-medium text-blue-600 mb-2">
+                    Full Name
+                </label>
+                <input type="text" formControlName="name" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your name">
+            </div>
+            <div>
+                <label for="email" class="block text-xl font-medium text-blue-600 mb-2">
+                    Email Address
+                </label>
+                <input type="email" formControlName="email" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your email">
+            </div>
+            <div>
+                <label for="phone" class="block text-xl font-medium text-blue-600 mb-2">
+                    Phone Address
+                </label>
+                <input type="tel" formControlName="phone" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your phone">
+            </div>
+            <button type="submit" class="btnColor flex items-center justify-center gap-2 mt-15">
+                <i class="fa-solid fa-floppy-disk"></i>
+                Save
+            </button>
+        </form>
+       </div>
+       <div class="p-6 sm:p-8 bg-red-100">
+        <span class="font-bold text-mohammed-500 mb-4 text-xl">Account Information</span>
+        <div class="space-y-3 text-lg">
+            <div class="flex items-center justify-between">
+                <span class="text-hussein">User ID</span>
+                <span class="font-mono text-mohammed-500">6a2102eefc33d80012154b05</span>
+            </div>
+            <div class="flex items-center justify-between">
+                <span class="text-hussein">Role</span>
+                <span class="font-medium px-3 py-1 rounded-lg bg-red-300
+                capitalize text-mohammed-500">user</span>
+            </div>
+        </div>
+       </div>
+    </div>
+    <div class="bg-white rounded-3xl border-2 border-hussein shadow-md shadow-hussein
+    overflow-hidden">
+       <div class="p-6 sm:p-8">
+        <div class="flex items-center gap-4 mb-6">
+            <div class="size-14 rounded-2xl bg-red-100 flex items-center justify-center
+            text-hussein">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+                <h6 class="font-bold text-mohammed-500 text-xl">Change Password</h6>
+                <p class="text-lg text-hussein">Update your account password</p>
+            </div>
+        </div>
+        <form class="space-y-5" [formGroup]="changeForm" (ngSubmit)="updateChangePassword()"> 
+            @if (successPasswordMsg()){
+                <div class="bg-green-700 text-green-100 rounded-lg mb-6 text-xl p-4
+                font-medium border-2 border-green-300">{{successPasswordMsg()}}</div>
+            }
+            @if (errorPasswordMsg()){
+                <div class="bg-red-700 text-red-100 rounded-lg mb-6 text-xl p-4
+                font-medium border-2 border-red-300">{{errorPasswordMsg()}}</div>
+            }
+            <div>
+                <label for="currentPassword" class="block text-xl font-medium text-blue-600 mb-2">
+                    Current Password
+                </label>
+                <input type="password" id="currentPassword" name="currentPassword" 
+                formControlName="currentPassword" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your current password">
+            </div>
+            <div>
+                <label for="password" class="block text-xl font-medium text-blue-600 mb-2">
+                    New Password
+                </label>
+                <input type="password" id="password" name="password" formControlName="password" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your new password">
+            </div>
+            <div>
+                <label for="email" class="block text-xl font-medium text-blue-600 mb-2">
+                    Confirm New Password
+                </label>
+                <input type="password" id="rePassword" name="rePassword" formControlName="rePassword" 
+                class="w-full px-4 py-3 rounded-xl border-2 border-red-500
+                focus:border-red-700 focus:ring-2 focus:ring-red-500/20 outline-none transition-all
+                text-xl" 
+                required placeholder="Enter your confirm new password">
+            </div>
+            <div class="pt-4">
+                <button type="submit" class="btnColor flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Change Password
+                </button>
+            </div>
+        </form>
+       </div>
+    </div>
+  </div>
+}

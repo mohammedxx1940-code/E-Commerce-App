@@ -1,0 +1,24 @@
+
+<div class="grid rounded-lg divide-y-4 divide-red-400 border-4 border-red-400  overflow-hidden">
+        <div class="grid grid-cols-4 text-white divide-x-4 divide-red-400 bg-red-700 text-2xl 
+        font-medium text-center capitalize">
+            <div class="p-4">id</div>
+            <div class="p-4">name</div>
+            <div class="p-4">email</div>
+            <div class="p-4 ">date</div>
+        </div>
+        @for (item of users(); track $index) {
+            <div class="grid grid-cols-4 text-red-500 divide-x-4 divide-red-500 border-red-500
+           bg-red-300 hover:bg-red-200 text-2xl font-semibold">
+              <div class="p-4">{{item._id}}</div>
+              <div class="p-4">{{item.name}}</div>
+              <div class="p-4">{{item.email}}</div>
+              <div class="p-4">{{item.createdAt}}</div>
+            </div>
+        } 
+        <div class="grid grid-cols-4 text-red-500 divide-x-4 divide-red-500 border-red-500
+           bg-blue-300 text-2xl font-semibold text-center">
+              <div class="p-4 col-span-2 hover:bg-red-200 font-bold">Total</div>
+              <div class="p-4 col-span-2 hover:bg-red-200">{{users().length}} users</div>
+        </div>
+</div>

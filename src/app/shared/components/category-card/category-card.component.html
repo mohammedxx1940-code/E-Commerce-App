@@ -1,0 +1,9 @@
+<div [routerLink]="['/categories', category()._id, 'subcategories']" 
+class="bg-white rounded-lg p-4 text-center shadow-md
+  hover:shodow-lg hover:shadow-red-500 transition-all duration-300 cursor-pointer group">
+    <div class="size-24 overflow-hidden bg-red-500 rounded-full flex items-center justify-center
+     mx-auto mb-3 group-hover:bg-red-700 transition-all duration-300">
+       <img [src]="category().image" [alt]="category().name" class="size-20 object-cover rounded-full">
+    </div>
+    <h3 class="font-medium">{{category().name}}</h3>
+</div>

@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto flex items-center flex-col md:flex-row gap-3 py-5 px-3 md:px-2">
+    <div class="md:w-1/4 w-full grid gap-3">
+        <img [src]="selectedImage()" [alt]="productDetail()?.title" class="h-[300px] w-full">
+        <div class="flex gap-2">
+          @for (img of productDetail()?.images; track $index) {
+            <div class="h-[80px] w-6/12 md:w-3/12 hover:opacity-50 rounded-md overflow-hidden 
+            cursor-pointer" 
+            [class.border-3]="selectedImage() === img"
+            [class.border-red-500]="selectedImage() === img"
+            (click)="changeImage(img)"
+            (mouseenter)="changeImage1(img)"
+            (mouseleave)="claerImage()">
+                <img [src]="img" alt="images" class="size-full object-cover">
+            </div>
+          }
+        </div>
+    </div>
+    <div class="grow flex flex-col gap-3 relative">
+        @if (selectedImage1()) {
+            <img [src]="selectedImage1()" [alt]="''"
+            class="size-full absolute top-0">
+        }
+        <h2 class="text-4xl text-red-500">{{productDetail()?.title}}</h2>
+        <p class="text-3xl">{{productDetail()?.description}}</p>
+        <div class="flex justify-between items-center text-blue-600">
+            <span class="text-2xl">{{productDetail()?.category?.name}}</span>
+            <span class="text-right text-2xl">{{productDetail()?.price}} EGP</span>
+        </div>
+        <button 
+        (click)="addProductToUserCart()"
+        [disabled]="loading()"
+        class="bg-red-500 text-white rounded hover:bg-red-700 p-3 transition-all 
+        duration-300 text-xl cursor-pointer">
+             @if (loading()) {
+                  <i class="fa fa-spinner fa-spin"></i>
+                  <app-loader></app-loader>
+                  <app-spinner-success>
+                    The produc has been successfully added to the shopping cart
+                  </app-spinner-success>
+              }@else {
+                Add To Cart
+              }
+        </button>
+    </div>
+</div>
+<div class="container mx-auto my-15 px-3 md:px-2">
+    <div class="flex items-center gap-3 my-8">
+        <div class="h-8 w-1.5 bg-linear-to-b from-red-500 to-red-800 rounded-full"></div>
+        <h2 class="text-3xl font-bold text-gray-600">Featured <span class="text-red-500">
+            Products</span></h2>
+    </div>
+    <div class="grid lg:grid-cols-5 gap-5 mt-5 mx-auto">
+        @for (item of products(); track item.id) {
+            <app-product-card [product]="item"></app-product-card>
+        }
+    </div>
+</div>
+<app-footer></app-footer>

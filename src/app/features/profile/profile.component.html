@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<main class="min-h-screen bg-red-300">
+    <article class="bg-linear-to-br from-red-500 via-red-600 to-red-700 text-white">
+        <section class="container mx-auto px-4 py-10 sm:py-12">
+            <div class="flex items-center gap-2 text-xl mb-6">
+                <a href="/" class="hover:text-red-300 text-red-200 transition-all duration-300">
+                    Home
+                </a>
+                <span>/</span>
+                <span class="font-medium">My Account</span>
+            </div>
+            <div class="flex items-center gap-5">
+                <div class="size-16 rounded-2xl bg-red-300 text-red-500 backdrop-blur-sm flex 
+                items-center justify-center shadow-xl shadow-red-800 ring-3 ring-red-100/50">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold tracking-tight">My Account</h2>
+                    <p class="text-red-200 mt-1 text-lg">Manage your addresses and account settings</p> 
+                </div>
+            </div>
+        </section>
+    </article>
+    <aside class="container mx-auto px-4 py-8">
+        <section class="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            <div class="w-full lg:w-72 shrink-0">
+                <div class="bg-white rouded-2xl border-2 border-red-500 shadow-md shadow-danger
+                overflow-hidden">
+                   <div class="p-4 border-b-2 border-red-500">
+                    <h2 class="font-bold text-blue-600 text-xl">My Account</h2>
+                   </div>
+                   <ul class="p-2">
+                    <li>
+                        <a routerLink="addresses" class="flex items-center gap-3 px-4 py-3
+                        rounded-xl transition-all duration-300 group text-blue-600"
+                        routerLinkActive="!text-red-500 bg-red-50">
+                           <div class="size-9 rounded-lg flex items-center justify-center transition-colors
+                           bg-red-300 text-red-500" routerLinkActive="!bg-red-500 !text-white">
+                              <i class="fa-solid fa-location-dot text-lg"></i>
+                           </div>
+                           <span class="font-medium flex-1 text-2xl">My Addresses</span>
+                           <i class="fa-solid fa-chevron-right text-xl text-right"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="settings" class="flex items-center gap-3 px-4 py-3
+                        rounded-xl transition-all duration-300 group text-blue-600"
+                        routerLinkActive="!text-red-500 bg-red-50">
+                           <div class="size-9 rounded-lg flex items-center justify-center transition-colors
+                           bg-red-300 text-red-500"
+                           routerLinkActive="!bg-red-500 !text-white">
+                              <i class="fa-solid fa-gear text-lg"></i>
+                           </div>
+                           <span class="font-medium flex-1 text-2xl">Settings</span>
+                           <i class="fa-solid fa-chevron-right text-xl text-right"></i>
+                        </a>
+                    </li>
+                   </ul>
+                </div>
+            </div>
+            <div class="min-w-0 flex-1">
+                <router-outlet></router-outlet>
+            </div>
+        </section>
+    </aside>
+</main>
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

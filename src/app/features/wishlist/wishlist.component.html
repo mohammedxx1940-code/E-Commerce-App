@@ -1,0 +1,74 @@
+<app-navbar></app-navbar> 
+@if (isAnimation()) {
+  <div class="w-full min-h-[400px] flex items-center justify-center bg-red-200 z-[999]">
+      <div class="flex flex-col justify-center items-center gap-7">
+        <i class="fa-solid fa-spinner fa-spin text-5xl text-red-500"></i>
+        <span class="text-2xl text-blue-700">Wishlist Loading......</span>
+      </div>
+  </div>
+}@else {
+ @if (wishlistData() && wishlistData()?.length) {
+  <main class="min-h-screen bg-red-300">
+   <aside class="bg-linear-to-br from-red-400 via-red-500 to-red-600 text-white">
+        <section class="container mx-auto px-4 py-10 sm:py-14">
+            <div class="flex items-center gap-2 text-xl text-white mb-6 flex-wrap">
+                <a href="/" class="text-red-300 hover:text-red-200 transition-colors duration-200">
+                    Home
+                </a>
+                <span class="text-red-100">/</span>
+                <span class="font-medium">Wishlist</span>
+            </div>
+            <div class="flex items-center gap-5">
+                <div class="size-16 rounded-xl bg-white text-red-500 flex text-3xl justify-center 
+                items-center">
+                   <i class="fa-solid fa-heart"></i>
+                </div>
+                <div class="text-white">
+                    <h2 class="text-4xl font-bold tracking-tight">My Wishlist</h2>
+                    <p class="text-red-300 mt-1 text-xl">{{wishlistData()?.length}} items saved</p>
+                </div>
+            </div>
+        </section>
+    </aside>
+    <aside class="container mx-auto px-4 py-8">
+        <section class="bg-white rounded-2xl border-2 border-red-500 overflow-hidden">
+            <div class="hidden md:grid grid-cols-12 gap-4 px-6 bg-red-300 border-b-2 border-red-500
+             text-xl font-medium text-red-500">
+               <div class="col-span-6">Product</div>
+               <div class="col-span-2">Price</div>
+               <div class="col-span-2">Status</div>
+               <div class="col-span-2">Actions</div>
+            </div>
+            <div class="divide-y-2 divide-red-500">
+                @for (item of wishlistData(); track $index) {
+                  <app-wishlist-product-card [product]="item"
+                  (deleteItem)="removeItem($event)"></app-wishlist-product-card>
+                } 
+            </div>        
+        </section>
+        <div class="mt-8 flex items-center justify-between">
+                <a routerLink="/shop/products" class="text-red-500 hover:text-red-700 text-xl
+                font-medium transition-colors">← Continue Shopping</a>
+          </div>
+    </aside>
+ </main>
+ }@else {
+  <div class="mx-auto px-4 py-20 min-h-screen bg-red-300">
+    <div class="max-w-sm mx-auto text-center">
+      <div class="size-20 rounded-2xl bg-red-100 flex items-center justify-center mx-auto mb-6
+       text-red-500 text-4xl">
+         <i class="fa-regular fa-heart"></i>
+      </div>
+      <h2 class="text-2xl font-bold text-red-500 mb-2">Your wishlist is empty</h2>
+      <p class="text-lg mb-6 text-blue-700">Browse products and save your favorites here.</p>
+      <div class="flex flex-col gap-3">
+        <a href="/shop/products" class="inline-flex items-center justify-center gap-2 px-6 py-3
+        rounded-xl bg-red-500 text-white font-semibold hover:bg-red-700 transition-colors
+        text-2xl">Browse Products <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+ }
+}
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

@@ -1,0 +1,53 @@
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 md:px-6 md:py-5 items-center
+                  hover:bg-red-50/50 transition-color">
+                  <div class="md:col-span-6 flex items-center gap-4">
+                    <a [routerLink]="['/shop' , product()._id]" class="size-20 rounded-xl bg-red-200 
+                    border-2 border-red-500 overflow-hidden shrink-0">  
+                      <img [src]="product().imageCover" [alt]="product().title" class="w-full h-full 
+                      object-contain p-2">
+                    </a>
+                    <div class="min-w-0">
+                      <a [routerLink]="['/shop' , product().id]" class="font-medium text-red-500
+                       hover:text-red-700 transition-colors line-clamp-2">{{product().title}}</a>
+                       <p class="text-lg text-blue-500 mt-1">{{product().category.name}}</p>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 flex md:justify-center items-center gap-2">
+                    <span class="md:hidden text-lg text-blue-500">Price:</span>
+                    <div class="text-end md:text-center">
+                      <div class="font-semibold text-red-500 text-xl">
+                        {{product().price}} EGP
+                      </div>
+                    </div>
+                  </div>
+                  <div class="md:col-span-2 flex md:justify-center">
+                    <span class="md:hidden text-lg text-blue-500 me-2">Status:</span>
+                    <span class="flex items-center gap-1.5 px-3 py-1 rounded-full text-sm
+                     bg-red-300 text-red-500">
+                       <span class="size-1.5 rounded-full bg-red-500"></span> <span>In Stock</span>
+                    </span>
+                  </div>
+                  <div class="md:col-span-2 flex items-center gap-2 md:justify-center">
+                    @if(isCart()){
+                        <button class="flex-1 md:flex-none inline-flex items-center justify-center gap-2
+                        px-4 py-2.5 rounded-lg text-xl font-medium transition-all bg-red-200
+                        hover:bg-red-100 cursor-pointer text-red-500" routerLink="/cart">
+                            <i class="fa-solid fa-check"></i>
+                            <span class="md:hidden lg:inline">View Cart</span>
+                        </button>
+                    }@else{
+                        <button class="flex-1 md:flex-none inline-flex items-center justify-center gap-2
+                           px-4 py-2.5 rounded-lg text-xl font-medium transition-all bg-red-500 text-white
+                          hover:bg-red-700 cursor-pointer" (click)="toggleCart()">
+                              <i class="fa-solid fa-cart-shopping"></i> 
+                              <span class="md:hidden lg:inline">Add To Cart</span>
+                        </button>
+                    }
+                    <button class="size-10 rounded-md border-2 border-red-500 bg-red-300 flex
+                    items-center justify-center text-red-500 hover:bg-red-700 hover:border-red-700
+                    hover:text-white transition-all disabled:opacity-50 text-xl cursor-pointer"
+                    (click)="deleteWishlist()">
+                      <i class="fa-solid fa-trash"></i> 
+                    </button>
+                  </div>
+</div>

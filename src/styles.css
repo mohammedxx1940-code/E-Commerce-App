@@ -1,3 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+@theme {
+    --color-mohammed-500 : blue;
+    --color-hussein : red;
+}
+::-webkit-scrollbar{
+    width: 15px;
+    padding: 5px;
+}
+
+@layer components{
+    h5{
+        font-size: 25px;
+        font-weight: bold;
+        color: red;
+    }
+    .btnColor{
+        @apply bg-red-500 text-white p-4 rounded-md shadow-lg shadow-red-700 hover:bg-red-600
+        cursor-pointer;
+        font-size : 18px;
+        font-weight: bold;
+    }
+    ::-webkit-scrollbar-thumb{
+        @apply bg-orange-700
+    }
+    ::-webkit-scrollbar-track{
+        @apply bg-orange-200
+    }
+}

@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="px-4 py-8 container mx-auto">
+    <div class="relative flex gap-2">
+                <input [formControl]="searchInput"
+                type="search" name="search" id="search" placeholder="Search product" 
+                class="w-full ps-5 pe-5 py-4 bg-white border-2
+                 border-red-500 rounded-2xl text-red-500 text-2xl placeholder-red-300
+                 focus:outline-none focus:border-red-700 focus:ring-4 focus:ring-red-500/10
+                 transition-all shadow-xl shadow-red-800" required> 
+                 <button (click)="searchProducts()"
+                 class="group flex justify-center items-center gap-3 px-8 py-4 rounded-2xl
+                 font-semibold text-2xl transition-all duration-300 shadow-lg bg-linear-to-r
+                 from-red-400 via-red-500 to-red-600 hover:from-red-600 hover:via-red-700
+                 hover:to-red-800 text-white shadow-red-500/30 hover:scale-[1.02] cursor-pointer"
+                 routerLink="/research">
+                   <span>Search</span>  
+                   <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                 </button>
+    </div>
+    <div class="container mx-auto py-8">
+      <div class="grid lg:grid-cols-5 gap-4">
+        @for (product of searchResults(); track product._id) {
+            <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+      @if(searchResults().length == 0){
+        <h2 class="text-center text-red-500 text-4xl">Not Products !!</h2>
+      }
+    </div>
+</div>
+<app-newsletter></app-newsletter>
+<app-footer></app-footer>

@@ -1,0 +1,323 @@
+<main class="py-10">
+    <aside class="container max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 p-4">
+        <section class="border-2 border-red-500 p-3 rounded-xl h-[620px]">
+            <h2 class="text-4xl font-bold">Welcome to <span class="text-red-500">
+                Shopping App</span></h2>
+            <p class="text-2xl mt-2 mb-4">Join thousands of happy customers who enjoy fresh groceries 
+                delivered right to their doorstep.</p>
+            <ul class="*:flex *:items-center *:gap-4 space-y-6 my-8">
+                <li>
+                    <div class="size-12 text-xl bg-red-300 text-red-500 rounded-full flex 
+                    justify-center items-center">
+                      <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-500">Premium Quality</h3>
+                        <p class="text-gray-600 text-xl">Premium quality products sourced from trusted 
+                            suppliers.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="size-12 text-xl bg-red-300 text-red-500 rounded-full flex 
+                    justify-center items-center">
+                      <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-500">Fast Delivery</h3>
+                        <p class="text-gray-600 text-xl">Same-day delivery available in most areas</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="size-12 text-xl bg-red-300 text-red-500 rounded-full flex 
+                    justify-center items-center">
+                      <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-red-500">Secure Shopping</h3>
+                        <p class="text-gray-600 text-xl">Your data and payments are completely 
+                            secure</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="bg-red-100 shadow-md shadow-red-700 p-4 rounded-md">
+                <div class="flex items-center gap-4 mb-4 text-xl">
+                    <img src="https://www.svgrepo.com/show/506667/person.svg"
+                     alt="Mohammed Hussein" class="size-12 rounded-full">
+                    <div>
+                        <h3 class="text-red-500">Mohammed Hussein</h3>
+                        <div class="*:text-yellow-300">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <blockquote>
+                    <p class="italic text-gray-600 text-lg">
+                        "FreshCart has transformed my shopping experience. The quality of the 
+                        products is outstanding, and the delivery is always on time. Highly recommend!"
+                    </p>
+                </blockquote>
+            </div>
+        </section>
+        <section class="sc2 rounded-2xl px-6 py-10">
+            <h2 class="text-center text-4xl font-semibold mb-2 text-red-500 
+            text-shadow-lg text-shadow-red-500">Create Your Account</h2>
+            <p class="p1 text-center text-xl">Start your fresh journey with us today</p>
+            <div class="grid lg:grid-cols-2 gap-2 my-10">
+                <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
+                hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
+                disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
+                text-xl rounded-2xl"
+                aria-label="Sign up with Google">
+                  <i class="fa-brands fa-google"></i>
+                  <span>Google</span> 
+                </button>
+                <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
+                hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
+                disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
+                text-xl rounded-2xl"
+                aria-label="Sign up with Facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                  <span>Facebook</span> 
+                </button>
+            </div>
+            <div class="relative w-full h-0.5 bg-red-500/70 my-4 flex items-center before:content-['Or']
+             before:text-red-500 before:absolute before:top-1/2 before:start-1/2 before:-translate-1/2
+              before:bg-white before:px-4 before:text-2xl" aria-hidden="true"></div>
+            <form class="space-y-7" [formGroup]="registerForm" (ngSubmit)="registerNow()" novalidate>
+                @if (errorMsg()) {
+                    <div class="px-5 py-10 bg-red-600 text-white fixed end-10 top-15 text-2xl 
+                    cursor-pointer flex justify-center flex-col z-40" #er (click)="getHide(er)">
+                       <div class="flex gap-2 text-2xl items-center font-bold">
+                        <span class=" bg-white text-red-600 rounded-full size-5 flex justify-center
+                         items-center text-sm"><i class="fa-solid fa-exclamation"></i></span>
+                         <span>Error</span>
+                        </div>
+                       <span class="text-xl">{{errorMsg()}}</span>
+                    </div>
+                }
+                @let nameController = registerForm.get('name');
+                <div class="flex flex-col gap-2 text-2xl relative">
+                    <label for="name">
+                        Name *
+                    </label>
+                    <input formControlName="name"
+                    [class.!border-green-500]="nameController?.valid && nameController?.touched"                  
+                    [class.!border-red-500]="nameController?.errors && nameController?.touched"
+                     type="text" class="form-control focus:ring-0 appearance-none border-4
+                    border-blue-700 focus:outline-none focus:border-blue-900 rounded-2xl text-2xl" 
+                    placeholder="Enter Your Name" aria-invalid="false" name="name" id="name">
+                    @if (nameController?.invalid && nameController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                    }
+                    @if (nameController?.valid && nameController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                    }
+                </div>
+                @if (nameController?.errors && nameController?.touched) {
+                    <app-alert>
+                        <ul>
+                            @if(nameController?.hasError('required')){
+                                <li>Name is required</li>
+                            }
+                        </ul>
+                    </app-alert>
+                }
+                
+                @let emailController = registerForm.get('email');
+                <div class="flex flex-col gap-2 text-2xl relative">
+                    <label for="name">
+                        Email *
+                    </label>
+                    <input formControlName="email"
+                    [class.!border-green-500]="emailController?.valid && emailController?.touched"  
+                    [class.!border-red-500]="emailController?.errors && emailController?.touched"
+                     type="email" class="form-control focus:ring-0 appearance-none border-4 
+                    border-blue-700 focus:outline-none focus:border-blue-900 rounded-2xl text-2xl" 
+                    placeholder="Enter Your Email" aria-invalid="false" name="email" id="email">
+                    @if (emailController?.invalid && emailController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                    }
+                    @if (emailController?.valid && emailController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                    }
+                </div>
+                @if (emailController?.errors && emailController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(emailController?.hasError('required')){
+                                <li>Email is required</li>
+                            }
+                            @if(emailController?.hasError('email')){
+                                <li>Email is required</li>
+                            }
+                        </ul>
+                    </app-alert>
+                }
+                @let passwordController = registerForm.get('password');
+                <div class="flex flex-col gap-2 text-2xl relative">
+                    <label for="name">
+                        Password *
+                    </label>
+                    <input formControlName="password" #pass
+                    [class.!border-green-500]="passwordController?.valid && passwordController?.touched"
+                    [class.!border-red-500]="passwordController?.errors && passwordController?.touched"
+                     type="password" class="form-control focus:ring-0 appearance-none border-4 
+                    border-blue-700 focus:outline-none focus:border-blue-900 rounded-2xl text-2xl" 
+                    placeholder="Enter Your Password" aria-invalid="false" name="password" id="password">  
+                    @if (passwordController?.invalid && passwordController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                    }
+                    @else if (passwordController?.valid && passwordController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                        <i class="fa-solid absolute end-10 top-17 -translate-1/2 active:scale-[.7] 
+                    transition-all duration-300" (click)="pass.type == 'text' ? pass.setAttribute('type' 
+                        , 'password') : pass.setAttribute('type' , 'text')" 
+                    [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    }
+                    @else{
+                        <i class="fa-solid absolute end-3 top-17 -translate-1/2 active:scale-[.7] 
+                    transition-all duration-300" (click)="pass.type == 'text' ? pass.setAttribute('type' 
+                        , 'password') : pass.setAttribute('type' , 'text')" 
+                    [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    }
+                </div>
+                @if (passwordController?.errors  && passwordController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(passwordController?.hasError('required')){
+                                <li>Password is required</li>
+                            }
+                            @if(passwordController?.hasError('pattern')){
+                                <li>Password pattern error !!!</li>
+                            }
+                        </ul>
+                    </app-alert>
+                }
+                @let rePasswordController = registerForm.get('rePassword');
+                <div class="flex flex-col gap-2 text-2xl relative">
+                    <label for="rePassword">
+                        RePassword *
+                    </label>
+                    <input formControlName="rePassword" #repass
+                    [class.!border-green-500]="rePasswordController?.valid && rePasswordController?.touched"
+                    [class.!border-red-500]="rePasswordController?.errors && rePasswordController?.touched"
+                     type="password" class="form-control focus:ring-0 appearance-none border-4 
+                    border-blue-700 focus:outline-none focus:border-blue-900 rounded-2xl text-2xl"
+                    placeholder="Enter Your Password" aria-invalid="false" name="rePassword" 
+                    id="rePassword">
+                    @if (rePasswordController?.invalid && rePasswordController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                    }
+                    @else if (rePasswordController?.valid && rePasswordController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                        <i class="fa-solid absolute end-10 top-17 -translate-1/2 active:scale-[.7] 
+                    transition-all duration-300" 
+                    (click)="repass.type == 'text' ? repass.setAttribute('type' 
+                        , 'password') : repass.setAttribute('type' , 'text')" 
+                    [class]="repass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    }
+                    @else{
+                        <i class="fa-solid absolute end-3 top-17 -translate-1/2 active:scale-[.7] 
+                    transition-all duration-300" 
+                    (click)="repass.type == 'text' ? repass.setAttribute('type' 
+                        , 'password') : repass.setAttribute('type' , 'text')" 
+                    [class]="repass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    }
+                </div>
+                @if (rePasswordController?.errors && rePasswordController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(rePasswordController?.hasError('required')){
+                                <li>RePassword is required</li>
+                            }
+                            @if(rePasswordController?.hasError('mismatch')){
+                                <li>RePassword pattern error !!!</li>
+                            }
+                        </ul>
+                    </app-alert>
+                }
+                @let phoneController = registerForm.get('phone');
+                <div class="flex flex-col gap-2 text-2xl relative">
+                    <label for="phone">
+                        Phone *
+                    </label>
+                    <input formControlName="phone"
+                    [class.!border-green-500]="phoneController?.valid && phoneController?.touched"
+                    [class.!border-red-500]="phoneController?.errors && phoneController?.touched"
+                     type="tel" class="form-control focus:ring-0 appearance-none border-4 
+                    border-blue-700 focus:outline-none focus:border-blue-900 rounded-2xl text-2xl" 
+                    placeholder="Enter Your Phone" aria-invalid="false" name="phone" id="phone">
+                    @if (phoneController?.invalid && phoneController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-exclamation"></i></span>
+                    }
+                    @if (phoneController?.valid && phoneController?.touched){
+                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        rounded-full size-5 flex justify-center items-center text-sm">
+                        <i class="fa-solid fa-check"></i></span>
+                    }
+                </div>
+                @if (phoneController?.errors && phoneController?.touched) {
+                    <app-alert> 
+                        <ul>
+                            @if(phoneController?.hasError('required')){
+                                <li>Phone is required</li>
+                            }
+                            @if(phoneController?.hasError('pattern')){
+                                <li>Phone error !!!</li>
+                            }
+                        </ul>
+                    </app-alert>
+                }
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" class="size-6 text-xl accent-red-500" id="checkbox" 
+                    name="checkbox">
+                    <label for="checkbox" class="text-xl">I agree to the <a href="/terms" 
+                        class="text-red-500 hover:underline">Terms of Service</a> and 
+                        <a href="/privacy-policy" 
+                        class="text-red-500 hover:underline">Terms of Service</a>
+                    </label>
+                </div>
+                <button [disabled]="registerForm.invalid" type="submit" class="text-white bg-red-500 
+                flex gap-3 hover:bg-red-700 p-3 text-2xl cursor-pointer disabled:opacity-50 
+                disabled:cursor-not-allowed disabled:bg-gray-600 w-full flex items-center 
+                justify-center gap-3 rounded-2xl">
+                 @if (isLoading) {
+                    Loading.... <i class="fa fa-spinner fa-spin"></i>
+                 }@else {
+                    <i class="fa-solid fa-user-plus"></i>  
+                    <span>Create My Account</span>
+                 }
+                </button>
+            </form>
+            <p class="border-t-2 pt-10 border-red-500/30 my-4 text-center text-xl">
+                Already have an account? 
+                <a routerLink="/login" class="text-red-500 hover:underline font-medium">Sign In</a>
+            </p>
+        </section>
+    </aside>
+</main>
+@if (animation) {
+    <app-loader></app-loader>
+}

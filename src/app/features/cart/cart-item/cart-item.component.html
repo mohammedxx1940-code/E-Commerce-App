@@ -1,0 +1,96 @@
+<div class="relative bg-red-50 rounded-2xl shadow-md hover:shadow-xl
+                     hover:shadow-red-500 border-2 border-red-500 transition-all duration-300">
+                       <div class="p-4 sm:p-5">
+                        <div class="flex gap-4 sm:gap-6">
+                            <a [routerLink]="[`/shop/${cartProduct().product.id}`]" 
+                            class="relative shrink-0 group"> 
+                                <div class="size-28 sm:size-32 rounded-xl bg-linear-to-br from-gray-50
+                                 via-white to-gray-100 p-3 border-2 border-gray-100 
+                                 overflow-hidden"> 
+                                    <img [src]="cartProduct().product.imageCover" 
+                                    [alt]="cartProduct().product.title" 
+                                    class="size-full object-contain transition-transform 
+                                    duration-300 group-hover:scale-110">
+                                </div>
+                                <div class="absolute -bottom-1 -end-1 bg-red-500 text-white
+                                text-[15px] font-semibold px-2 py-1 rounded-full space-x-1
+                                 hover:bg-red-600">
+                                   <i class="fa-solid fa-check text-[13px]"></i>
+                                   In Stock
+                                </div>
+                            </a>
+                            <div class="flex-1 min-w-0 flex flex-col">
+                                <div class="mb-3">
+                                    <a href="" class="group/title">
+                                        <h3 class="font-semibold text-gray-900
+                                         group-hover/title:text-red-600 transition-all text-base 
+                                         sm:text-lg">{{cartProduct().product.title}}</h3>
+                                    </a>
+                                    <div class="flex items-center gap-2 mt-2">
+                                        <span class="inline-block px-2.5 py-1 bg-linear-to-r from-red-50
+                                        to-red-100 text-red-500 text-xl font-medium rounded-full
+                                        ">{{cartProduct().product.category.name}}</span>
+                                        <span class="text-xl text-gray-400">•</span>
+                                        <span class="text-xl text-gray-500">SKU: 5CA0A1</span>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="flex items-baseline gap-2">
+                                        <span class="text-red-500 font-bold text-xl">
+                                            {{cartProduct().price}} EGP</span>
+                                        <span class="text-lg text-gray-500">per unit</span>
+                                    </div>
+                                </div>
+                                <div class="mt-auto flex flex-wrap justify-between items-center gap-4">
+                                    <div class="flex items-center">
+                                     <div class="flex items-center bg-gray-50 rounded-xl p-2 border-2
+                                    border-red-500">
+                                      <button class="size-8 rounded-sm bg-white shadow-sm
+                                      flex items-center justify-center text-red-500 hover:text-red-700
+                                      disabled:opacity-40 disabled:text-gray-500 
+                                      disabled:cursor-not-allowed disabled:shadow-none transition-all
+                                      cursor-pointer"
+                                      [disabled]="cartProduct().count == 1"
+                                      (click)="updateItem(cartProduct().product._id , 
+                                      cartProduct().count - 1)">
+                                         <i class="fa-solid fa-minus"></i>
+                                      </button>
+                                      <span class="w-12 text-center font-bold text-gray-900">
+                                        {{cartProduct().count}}
+                                      </span>
+                                      <button class="size-8 rounded-sm bg-red-500 shadow-sm
+                                      flex items-center justify-center text-white hover:bg-red-700
+                                      cursor-pointer transition-all" 
+                                      (click)="updateItem(cartProduct().product._id , 
+                                      cartProduct().count + 1)">
+                                         <i class="fa-solid fa-plus"></i>
+                                      </button>
+                                     </div>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                     <div class="text-start">
+                                        <p class="text-lg text-gray-400 mb-0.4">Total</p>
+                                        <p class="text-xl font-bold text-gray-900">
+                                            {{cartProduct().price * cartProduct().count}}
+                                            <span class="text-lg font-medium text-gray-400">EGP</span>
+                                        </p>
+                                     </div>
+                                     <button class="size-10 rounded-xl border-2 border-red-500
+                                      bg-red-300 text-red-500 hover:bg-red-500 hover:text-white
+                                      hover:border-red-500 flex justify-center items-center
+                                       transition-all duration-200 text-lg cursor-pointer"
+                                       (click)="deleteItem(cartProduct().product._id)">
+                                       <i class="fa-solid fa-trash"></i>
+                                     </button>
+                                    </div> 
+                                </div>               
+                            </div>
+                        </div>
+                       </div>
+                       @if(loading()){
+                        <div class="absolute inset-0 bg-red-500/40 flex justify-center items-center
+                         text-red-500">
+                           <i class="fa fa-spinner fa-spin text-2xl"></i>
+                        </div>
+                       }
+</div>

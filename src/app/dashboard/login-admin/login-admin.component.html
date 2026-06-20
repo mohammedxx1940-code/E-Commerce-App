@@ -1,0 +1,26 @@
+<div class="min-h-screen flex justify-center items-center">    
+ <form class="grid gap-4 container" [formGroup]="loginForm" (ngSubmit)="login()">
+  <div class="mb-5">
+    <label for="username" class="block mb-2.5 text-2xl font-medium text-heading">Admin name</label>
+    <input type="text" id="username" formControlName="username"
+     class="bg-neutral-secondary-medium border border-default-medium text-heading text-2xl 
+     rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs
+      placeholder:text-body" placeholder="Enter admin name" required />
+  </div>
+  <div class="mb-5">
+    <label for="password" class="block mb-2.5 text-2xl font-medium text-heading">Your password</label>
+    <input type="password" id="password" formControlName="password" 
+    class="bg-neutral-secondary-medium border
+     border-default-medium text-heading text-2xl rounded-base focus:ring-brand
+      focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+       placeholder="••••••••" required />
+  </div>
+  <label for="remember" class="flex items-center mb-5">
+    <p class="ms-2 text-xl font-medium text-heading select-none">Back To <a href="/" 
+        class="text-fg-brand hover:underline">Home</a>.</p>
+  </label>
+  <button type="submit" class="text-white bg-brand box-border border border-transparent
+   hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 
+   rounded-base text-2xl px-4 py-2.5 focus:outline-none cursor-pointer">Submit</button>
+ </form>
+</div>
