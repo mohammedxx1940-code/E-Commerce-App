@@ -4,3 +4,4 @@ import { App } from './app/app';
 
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
+//"serve:ssr:shopping-app": "node dist/shopping-app/server/server.mjs"
