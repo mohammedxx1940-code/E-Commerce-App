@@ -2,6 +2,7 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../core/auth-service/auth.service';
 import { AnimationService } from '../../../../core/services/animation.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -19,6 +20,7 @@ export class SettingsComponent implements OnInit{
   successPasswordMsg = signal('');
   errorPasswordMsg = signal('');
   isAnimation = signal(true);
+  routeService = inject(Router);
   constructor() {
     this.profileForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -91,6 +93,7 @@ export class SettingsComponent implements OnInit{
           this.successPasswordMsg.set('');
         } , 2000);
         this.changeForm.reset();
+        this.routeService.navigate(['/login']);
       } , error: (e) => {
         console.log(e);
         this.errorPasswordMsg.set(e.error.message || 'Error changing password');
