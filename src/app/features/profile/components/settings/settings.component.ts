@@ -91,9 +91,9 @@ export class SettingsComponent implements OnInit{
         this.successPasswordMsg.set('Password changed successfully');
         setTimeout(() => {
           this.successPasswordMsg.set('');
+           this.routeService.navigate(['/login']);
         } , 2000);
         this.changeForm.reset();
-        this.routeService.navigate(['/login']);
       } , error: (e) => {
         console.log(e);
         this.errorPasswordMsg.set(e.error.message || 'Error changing password');
