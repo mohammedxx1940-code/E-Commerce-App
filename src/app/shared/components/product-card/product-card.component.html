@@ -62,11 +62,11 @@
             ">
              <span class="text-black line-through text-sm">
                 {{product().price |  number : ''}} EGP</span> 
-             <span class="text-lg ms-1 text-red-500 font-bold">
+             <span class="text-[17px] ms-1 text-red-500 font-bold">
               {{product().priceAfterDiscount |  number : ''}} EGP</span>
             </div>
             <div [class.hidden]="product().priceAfterDiscount">
-              <span class="text-red-500 text-lg font-bold">
+              <span class="text-red-500 text-[17px] font-bold">
                 {{product().price  |  number : ''}} EGP</span>
             </div>
             <button (click)="addProductToUserCart()" 

@@ -12,7 +12,8 @@ import { AuthService } from '../../core/auth-service/auth.service';
 
 @Component({
   selector: 'app-checkout-session',
-  imports: [NavbarComponent, NewsletterComponent, FooterComponent, ReactiveFormsModule, SpinnerSuccessComponent, RouterLink],
+  imports: [NavbarComponent, NewsletterComponent, FooterComponent, ReactiveFormsModule,
+     SpinnerSuccessComponent, RouterLink],
   templateUrl: './checkout-session.component.html',
   styleUrl: './checkout-session.component.css',
 })

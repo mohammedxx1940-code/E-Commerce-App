@@ -55,7 +55,7 @@
     <div class="bg-red-500 text-white">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16 lg:h-[72px] gap-4 lg:gap-8">
-                <h1 class="flex gap-2 text-2xl items-center font-bold">
+                <h1 class="flex gap-2 text-xl items-center font-bold">
                     <img 
                     src="https://img.freepik.com/premium-vector/shopping-logo-vector-icon-illustration-design_757387-4353.jpg"
                      alt="Shopping logo" class="size-13 rounded-full">
@@ -325,13 +325,14 @@
                       </div>
                     </div>
                   }@else {
-                   <a routerLink="/register" class="flex items-center gap-3 px-4 py-2.5 text-lg 
+                   <a routerLink="/register" class="flex items-center gap-3 px-4 py-2.5 text-sm
                        text-white hover:bg-white hover:text-red-500 transition-colors 
                           duration-500 rounded-md">
                          Sign Up
                     </a> 
                   }
-                  <button class="cursor-pointer lg:hidden ms-1 size-10 rounded-full bg-white
+                  <button class="cursor-pointer lg:hidden ms-1 size-10 rounded-sm sm:rounded-full
+                   bg-white
                    text-red-500 hover:bg-red-300 flex items-center justify-center transition-colors 
                    duration-500"(click)="toggleSideBar()"><i class="fas fa-bars" ></i></button>
                 </div>
