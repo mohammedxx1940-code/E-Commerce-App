@@ -1,3 +1,4 @@
+<!-- update -->
 @if (isAnimation){
   <app-animation></app-animation>
 }
@@ -5,7 +6,7 @@
 <swiper-container class="mySwiper swiper swiper-horizontal" navigation="true" 
 [pagination]="{clickable : true}" keyboard="true" mousewheel="true" css-mode="true">
     <swiper-slide>
-      <div class="slider-item h-[500px] py-40 px-20">
+      <div class="slider-item h-[500px] py-60 px-40">
         <div class="container mx-auto flex flex-col gap-3 justify-center h-full text-white">
           <h2 class="text-3xl font-bold">
             Fresh Products Delivered <br>
@@ -14,12 +15,12 @@
           <p>Get 20% off your first order</p>
           <div class="flex gap-3">
             <a routerLink="/shop/products" class="px-8 py-4 text-red-500 bg-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-700 hover:text-white 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-700 hover:text-white 
             rounded-lg">
               Shop Now
             </a>
             <a routerLink="/electronics" class="px-8 py-4 text-white border-2 border-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-300 hover:text-red-500 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-300 hover:text-red-500 
             rounded-lg hover:border-none">
               View Deals
             </a>
@@ -28,7 +29,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="slider-item h-[500px] py-40 px-20">
+      <div class="slider-item h-[500px] py-60 px-40">
         <div class="container mx-auto flex flex-col gap-3 justify-center h-full text-white">
           <h2 class="text-3xl font-bold">
             Premium Quality Guaranteed
@@ -36,13 +37,13 @@
           <p>Fresh from farm to your table</p>
           <div class="flex gap-3">
             <a routerLink="/brands" class="px-8 py-4 text-red-500 bg-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-700 hover:text-white 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-700 hover:text-white 
             rounded-lg">
               Shop Now
             </a>
             <a routerLink="/womens-fashion" 
             class="px-8 py-4 text-white border-2 border-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-300 hover:text-red-500 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-300 hover:text-red-500 
             rounded-lg hover:border-none">
               Learn More
             </a>
@@ -51,7 +52,7 @@
       </div>
     </swiper-slide>
     <swiper-slide>
-      <div class="slider-item h-[500px] py-40 px-20">
+      <div class="slider-item h-[500px] py-60 px-40">
         <div class="container mx-auto flex flex-col gap-3 justify-center h-full text-white">
           <h2 class="text-3xl font-bold">
             Fast & Free Delivery
@@ -59,12 +60,12 @@
           <p>Same day delivery available</p>
           <div class="flex gap-3">
             <a routerLink="/categories" class="px-8 py-4 text-red-500 bg-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-700 hover:text-white 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-700 hover:text-white 
             rounded-lg">
               Shop Now
             </a>
             <a routerLink="/mens-fashion" class="px-8 py-4 text-white border-2 border-white cursor-pointer 
-            hover:scale-105 transition-all duration-300 text-lg hover:bg-red-300 hover:text-red-500 
+            hover:scale-105 transition-all duration-300 text-sm hover:bg-red-300 hover:text-red-500 
             rounded-lg hover:border-none">
               Delivery Info
             </a>
@@ -82,7 +83,7 @@
          shrink-0"><i class="fa-solid fa-truck text-xl"></i></div>
          <div>
             <h3 class="font-semibold text-gray-600 text-lg">Free Shipping</h3>
-            <p class="tet-sm text-red-500">On orders over 500 EGP</p>
+            <p class="text-sm text-red-500">On orders over 500 EGP</p>
          </div>
       </div>
       <div class="flex items-center gap-4 bg-white p-4 shadow-lg hover:shadow-xl hover:shadow-red-500 
@@ -254,7 +255,8 @@
           <div class="flex flex-wrap gap-3">
             <div class="flex items-center gap-2.5 bg-red-300 border-2 border-red-500 px-4
             py-2.5 rounded-full shadow-md shadow-red-700">
-              <div class="size-10 bg-red-100 rounded-full flex items-center justify-center text-red-500
+              <div class="size-10 bg-red-100 rounded-full flex items-center justify-center
+              text-red-500
               text-xl">
                 <i class="fa-solid fa-leaf"></i>
               </div>
@@ -301,7 +303,8 @@
                       <div class="grid grid-cols-12 gap-3 p-3 border-b-2 border-red-500 w-full
                        bg-red-200 cursor-pointer hover:bg-red-300" 
                        [routerLink]="[`/shop/${product.id}`]">
-                        <img [src]="product.imageCover"  [alt]="product.title" class="size-14 object-contain
+                        <img [src]="product.imageCover"  [alt]="product.title" class="size-14
+                         object-contain
                         col-span-1 my-auto"
                         >
                         <div class="col-span-9 my-auto">
