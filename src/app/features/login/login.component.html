@@ -6,14 +6,14 @@
                 alt="Shopping Logo" class="w-full h-98 object-cover rounded-2xl shadow-xl shadow-red-500
                 ">
                 <div class="space-y-4">
-                    <h2 class="text-3xl font-bold text-red-500">
+                    <h2 class="text-lg md:text-xl font-bold text-red-500">
                         FreshCart - Your One-Stop Shop for Fresh Products
                     </h2>
-                    <p class="text-xl text-gray-700">
+                    <p class="text-base md:text-lg text-gray-700">
                         Join thousands of happy customers who trust FreshCart for their daily grocery 
                         needs
                     </p>
-                    <div class="flex items-center justify-center gap-8 text-lg text-gray-500">
+                    <div class="flex items-center justify-center gap-8 text-base md:text-lg text-gray-500">
                         <div class="space-x-2">
                             <i class="fa-solid fa-truck text-red-500"></i>
                             <span>Free Deliver</span>
@@ -33,19 +33,19 @@
         <section class="w-full rounded-2xl shadow-xl shadow-red-500 p-8 lg:p-9">
             <div class="text-center mb-8">
                 <div class="flex items-center justify-center mb-4">
-                    <span class="text-4xl font-bold text-red-500">
+                    <span class="text-2xl font-bold text-red-500">
                         Fresh
                         <label class="text-gray-800">Cart</label>
                     </span>
                 </div>
-                <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome Back!</h2>
+                <h2 class="text-lg font-bold text-gray-800 mb-2">Welcome Back!</h2>
                 <p class="text-gray-600 text-2xl">Sign in to continue your fresh shopping experience</p>
             </div>
             <div class="grid gap-3 mb-6">
                 <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
                 hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
                 disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
-                text-xl rounded-2xl"
+                text-base md:text-lg rounded-2xl"
                 aria-label="Sign up with Google">
                   <i class="fa-brands fa-google"></i>
                   <span>Google</span> 
@@ -53,7 +53,7 @@
                 <button class="px-2 py-3 bg-red-100 text-red-500 border-2 border-red-500 
                 hover:bg-red-200 flex gap-3 justify-center items-center disabled:bg-gray-200 
                 disabled:border-none disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed 
-                text-xl rounded-2xl"
+                text-base md:text-lg rounded-2xl"
                 aria-label="Sign up with Facebook">
                   <i class="fa-brands fa-facebook"></i>
                   <span>Facebook</span> 
@@ -63,7 +63,7 @@
                 <div class="absolute inset-0 flex items-center">
                     <div class="w-full border-t-2 border-red-500"></div>
                 </div>
-                <div class="relative flex justify-center text-lg">
+                <div class="relative flex justify-center text-base md:text-lg">
                     <span class="px-4 bg-white text-gray-700 font-medium">
                         OR CONTINUE WITH EMAIL</span>
                 </div>
@@ -72,17 +72,17 @@
                 @if (errorMsg()) {
                     <div class="px-5 py-10 bg-red-600 text-white fixed end-10 top-15 text-2xl 
                     cursor-pointer flex justify-center flex-col z-40" #er (click)="getHide(er)">
-                       <div class="flex gap-2 text-2xl items-center font-bold">
+                       <div class="flex gap-2 text-base md:text-lg items-center font-bold">
                         <span class=" bg-white text-red-600 rounded-full size-5 flex justify-center
                          items-center text-sm"><i class="fa-solid fa-exclamation"></i></span>
                          <span>Error</span>
                         </div>
-                       <span class="text-xl">{{errorMsg()}}</span>
+                       <span class="text-base md:text-lg">{{errorMsg()}}</span>
                     </div>
                 }
                 @let emailController = loginForm.get('email');
                 <div class="space-y-2">
-                    <label for="email" class="block text-2xl font-semibold mb2">Email Address</label>
+                    <label for="email" class="block text-base md:text-lg font-semibold mb2">Email Address</label>
                     <div class="relative">
                         <input type="email" 
                         formControlName="email"
@@ -90,10 +90,10 @@
                         [class.!border-red-500]="emailController?.errors && emailController?.touched"
                         name="email" id="email" class="w-full px-4 py-3 ps-12 border-2
                         border-blue-700 rounded-xl focus:outline-none focus:border-blue-900 
-                        transition-all focus:ring-2 focus:ring-blue-300 text-2xl" 
+                        transition-all focus:ring-2 focus:ring-blue-300 text-base md:text-lg" 
                         placeholder="Enter your email">
                         <i class="fa-solid fa-envelope text-gray-400 absolute start-3 top-1/2
-                        -translate-y-1/2 text-2xl"></i>
+                        -translate-y-1/2 text-base md:text-lg"></i>
                         @if (emailController?.invalid && emailController?.touched){
                         <span class="absolute end-3 top-1/2 -translate-1/2  bg-red-500 text-white 
                         rounded-full size-5 flex justify-center items-center text-sm">
@@ -121,7 +121,7 @@
                 <div class="space-y-2">
                     @let passwordController = loginForm.get('password');
                     <div class="flex items-center justify-between mb-2">
-                        <label for="password" class="block text-2xl font-semibold">Password</label>
+                        <label for="password" class="block text-base md:text-lg font-semibold">Password</label>
                         <a routerLink="/forget-password" class="text-2xl text-red-500 hover:text-red-700
                         cursor-pointer font-medium">Forget Password?</a>
                     </div>
@@ -133,10 +133,10 @@
                         name="password" id="password" 
                         class="w-full px-4 py-3 ps-12 border-2
                         border-blue-700 rounded-xl focus:outline-none focus:border-blue-900 
-                        transition-all focus:ring-2 focus:ring-blue-300 text-2xl" 
+                        transition-all focus:ring-2 focus:ring-blue-300 text-base md:text-lg" 
                         placeholder="Enter your password">
                         <i class="fa-solid fa-lock text-gray-400 absolute start-3 top-1/2
-                        -translate-y-1/2 text-2xl"></i>
+                        -translate-y-1/2 text-base md:text-lg"></i>
                         @if (passwordController?.invalid && passwordController?.touched){
                         <span class="absolute end-3 top-1/2 -translate-1/2  bg-red-500 text-white 
                         rounded-full size-5 flex justify-center items-center text-sm">
@@ -148,14 +148,14 @@
                         rounded-full size-5 flex justify-center items-center text-sm">
                         <i class="fa-solid fa-check"></i></span>
                         <i class="fa-solid absolute end-10 top-1/2 -translate-1/2 active:scale-[.7] 
-                        transition-all duration-300 text-2xl" 
+                        transition-all duration-300 text-base md:text-lg" 
                         (click)="pass.type == 'text' ? pass.setAttribute('type' 
                         , 'password') : pass.setAttribute('type' , 'text')" 
                         [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
                         }
                         @else{
                         <i class="fa-solid absolute end-3 top-1/2 -translate-1/2 active:scale-[.7] 
-                        transition-all duration-300 text-2xl" 
+                        transition-all duration-300 text-base md:text-lg" 
                         (click)="pass.type == 'text' ? pass.setAttribute('type' 
                         , 'password') : pass.setAttribute('type' , 'text')" 
                         [class]="pass.type == 'text' ? 'fa-eye-slash' : 'fa-eye'"></i>
@@ -176,15 +176,17 @@
                 </div>
                 <div class="flex items-center justify-between">
                     <label class="flex items-center">
-                        <input type="checkbox" name="checkbox" class="size-5 text-red-500 text-2xl
+                        <input type="checkbox" name="checkbox" class="size-5 text-red-500 text-base 
+                        md:text-lg
                          accent-red-500 appearance-none rounded-2xl focus:outline-none focus:ring-2
                           focus:ring-red-300">
-                        <span class="ms-3 text-xl text-gray-600">Keep me signed in</span>
+                        <span class="ms-3 text-base md:text-lg text-gray-600">Keep me signed in</span>
                     </label>
                 </div>
                 <button [disabled]="loading()" 
                 type="submit" class="w-full bg-red-500 text-white py-3 px-4 rounded-xl
-                hover:bg-red-700 transition-all duration-200 font-semibold text-2xl shadow-lg
+                hover:bg-red-700 transition-all duration-200 font-semibold text-base md:text-lg 
+                shadow-lg
                 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"> 
                   @if (loading()) {
                     Loading.... <i class="fa fa-spinner fa-spin"></i>
@@ -193,13 +195,13 @@
                    }
                 </button>
             </form>
-            <div class="text-center mt-8 pt-6 border-t-2 border-red-500 text-lg">
+            <div class="text-center mt-8 pt-6 border-t-2 border-red-500 text-base md:text-lg">
                 <p class="text-gray-600">New to FreshCart?
                     <a routerLink="/register" class="text-red-500 hover:text-red-700
                     ms-2 font-semibold cursor-pointer">Create an account</a>
                 </p>
             </div>
-            <div class="flex items-center justify-center gap-5 mt-6 text-lg text-gray-500">
+            <div class="flex items-center justify-center gap-5 mt-6 text-base md:text-lg text-gray-500">
                 <div class="space-x-2">
                     <i class="fa-solid fa-lock text-red-500"></i>
                     <span>SSL Secured</span>
