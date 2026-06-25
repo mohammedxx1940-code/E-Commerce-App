@@ -92,7 +92,7 @@
                                 {{item.shippingAddress.details}}
                             </span>
                         </div> 
-                        <div class="flex items-center justify-between gap-4 text-base">
+                        <div class="flex items-center justify-center md:justify-between gap-4 text-base">
                             <div>
                                 <span class="text-2xl font-bold text-red-500">
                                 {{item.totalOrderPrice  |  number}}</span>
@@ -101,13 +101,15 @@
                             <button class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-lg
                             font-semibold transition-all cursor-pointer" 
                             (click)="toggleDetails(item.id)" 
-                            [class]="isOpen(item.id) ? 'bg-red-500 text-white hover:bg-red-600'
+                            [class]="isOpen(item.id) ? 'bg-red-500 text-white
+                             hover:bg-red-600'
                             : 'bg-red-300 text-red-500 hover:bg-red-200'">
                             <!--
                             isOpen() === item.id 
                             -->
                             {{isOpen(item.id)? 'Hide' : 'Details'}}
-                            <i class="fa-solid fa-chevron-down" [class.rotate-180]="isOpen(item.id)"></i>
+                            <i class="fa-solid fa-chevron-down" 
+                            [class.rotate-180]="isOpen(item.id)"></i>
                             </button>
                         </div>
                     </div>

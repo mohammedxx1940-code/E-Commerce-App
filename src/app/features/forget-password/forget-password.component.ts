@@ -92,4 +92,7 @@ export class ForgetPasswordComponent {
       })
     }
   }
+  editStep(newStep : number){
+    this.step.set(newStep);
+  }
 }

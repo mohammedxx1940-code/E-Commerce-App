@@ -9,7 +9,7 @@
                 delivered right to their doorstep.</p>
             <ul class="*:flex *:items-center *:gap-4 space-y-4 md:space-y-6 my-6">
                 <li>
-                    <div class="size-12 bg-red-300 text-red-500 rounded-full flex 
+                    <div class="size-12 bg-red-300 text-red-500 rounded-md md:rounded-full flex 
                     justify-center items-center text-sm md:text-lg">
                       <i class="fa-solid fa-star"></i>
                     </div>
@@ -20,7 +20,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="size-12 bg-red-300 text-red-500 rounded-full flex 
+                    <div class="size-12 bg-red-300 text-red-500 rounded-md md:rounded-full flex 
                     justify-center items-center text-sm md:text-lg">
                       <i class="fa-solid fa-truck-fast"></i>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="size-12 bg-red-300 text-red-500 rounded-full flex 
+                    <div class="size-12 bg-red-300 text-red-500 rounded-md md:rounded-full flex 
                     justify-center items-center text-sm md:text-lg">
                       <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -114,12 +114,12 @@
                     text-base sm:text-lg" 
                     placeholder="Enter Your Name" aria-invalid="false" name="name" id="name">
                     @if (nameController?.invalid && nameController?.touched){
-                        <span class="absolute end-3 top-17 -translate-1/2  bg-red-500 text-white 
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-red-500 text-white 
                         rounded-full size-5 flex justify-center items-center text-sm">
                         <i class="fa-solid fa-exclamation"></i></span>
                     }
                     @if (nameController?.valid && nameController?.touched){
-                        <span class="absolute end-3 top-17 -translate-1/2  bg-green-500 text-white 
+                        <span class="absolute end-3 top-1/2 -translate-1/2  bg-green-500 text-white 
                         rounded-full size-5 flex justify-center items-center text-sm">
                         <i class="fa-solid fa-check"></i></span>
                     }
