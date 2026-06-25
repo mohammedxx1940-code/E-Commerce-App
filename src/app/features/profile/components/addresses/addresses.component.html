@@ -1,12 +1,12 @@
 <div>
-    <div class="flex items-center justify-between mb-6">
+    <div class="flex items-center justify-center md:justify-between flex-col md:flex-row mb-6">
         <div>
             <h3 class="text-lg font-bold text-blue-600">My Addresses</h3>
             <p class="text-red-500 text-sm mt-1">Manage your saved delivery addresses</p>
         </div>
         <button class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-red-500
        text-white font-semibold hover:bg-red-700 transition-colors shadow-lg 
-        shadow-red-800/25 text-lg cursor-pointer" (click)="formShow(form)">
+        shadow-red-800/25 text-base cursor-pointer" (click)="formShow(form)">
         <i class="fa-solid fa-plus"></i>
         Add Address</button>
     </div>
@@ -60,7 +60,7 @@
                 make checkout faster and easier.</p>
             <button class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-500
             text-white font-semibold hover:bg-red-700 transition-colors shadow-lg
-            shadow-red-600/25 text-lg cursor-pointer" (click)="formShow(form)">
+            shadow-red-600/25 text-base cursor-pointer" (click)="formShow(form)">
             <i class="fa-solid fa-plus"></i>
             Add Your First Address
             </button>
@@ -128,7 +128,7 @@
                 required placeholder="Cairo">
                </div>
             </div>
-            <div class="flex items-center gap-3 pt-4">
+            <div class="flex items-center flex-col md:flex-row gap-3 pt-4">
                 <button class="flex-1 py-3 px-6 rounded-xl bg-blue-600 text-white font-semibold
                 hover:bg-blue-700 transition-colors text-base cursor-pointer" type="button"
                 (click)="formHide(form)">
