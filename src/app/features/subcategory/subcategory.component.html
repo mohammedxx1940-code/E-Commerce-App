@@ -2,7 +2,7 @@
 <main class="min-h-screen bg-red-300">
   <aside class="bg-linear-to-br from-red-400 via-red-500 to-red-600 text-white">
         <section class="container mx-auto px-4 py-10 sm:py-14">
-            <div class="flex items-center gap-2 text-xl text-white mb-6 flex-wrap">
+            <div class="flex items-center gap-2 text-base text-white mb-6 flex-wrap">
                 <a href="/" class="text-red-300 hover:text-red-200 transition-colors duration-200">
                     Home
                 </a>
@@ -13,14 +13,14 @@
             </div>
             <div class="flex items-center gap-5">
                 <div class="size-16 rounded-2xl bg-white text-red-500 backdrop-blur-sm flex
-                justify-center items-center shadow-xl ring-8 ring-red-300 text-4xl
-                outline-4 outline-offset-12 outline-red-200 overflow-hidden">
+                justify-center items-center shadow-xl ring-8 ring-red-300 text-2xl
+                outline-4 outline-offset-10 outline-red-200 overflow-hidden">
                    <img [src]="categoryDetail()?.image" [alt]="categoryDetail()?.name"
                    class="size-12 object-contain">
                 </div>
                 <div class="text-white">
-                    <h2 class="text-5xl font-bold tracking-tight">{{categoryDetail()?.name}}</h2>
-                    <p class="text-red-300 mt-1 text-xl">Choose a subcategory to browse products</p>
+                    <h2 class="text-3xl font-bold tracking-tight">{{categoryDetail()?.name}}</h2>
+                    <p class="text-red-300 mt-1 text-base">Choose a subcategory to browse products</p>
                 </div>
             </div>
         </section>
@@ -29,17 +29,17 @@
       @if (isAnimation) {
             <div class="relative min-h-[500px]">
                <i class="fa-solid fa-spinner fa-spin absolute top-1/2 start-1/2 -traslate-x-1/2 
-                -translate-y-1/2 text-5xl text-red-500"></i>
+                -translate-y-1/2 text-3xl text-red-500"></i>
             </div>
       }
       <section class="px-4 py-10">
         <a routerLink="/categories" class="inline-flex items-center gap-2 text-red-500
-         hover:text-red-700 transition-colors mb-6 text-2xl">
+         hover:text-red-700 transition-colors mb-6 text-lg">
          <i class="fa-solid fa-arrow-left"></i>
          <span>Back to Categories</span>
         </a>
         <div class="mb-6">
-          <h2 class="text-blue-800 text-xl font-bold">
+          <h2 class="text-blue-800 text-base font-bold">
             {{subCategories().length}}  Subcategories in  {{categoryDetail()?.name}}
           </h2>
         </div>
@@ -51,12 +51,12 @@
             duration-300 hover:-translate-y-1 cursor-pointer" [routerLink]="['/products/subcategory' 
             , item._id]">
               <div class="size-14 rounded-xl bg-red-300 flex items-center justify-center mb-4
-              group-hover:bg-red-200 transition-colors text-2xl text-red-500">
+              group-hover:bg-red-200 transition-colors text-lg text-red-500">
                  <i class="fa-solid fa-folder-open"></i>
               </div>
-              <h3 class="font-bold text-red-500 text-xl group-hover:text-red-700 transition-colors
+              <h3 class="font-bold text-red-500 text-base group-hover:text-red-700 transition-colors
               mb-2">{{item.name}}</h3>
-              <div class="flex items-center justify-center gap-2 text-lg text-blue-500 opacity-0
+              <div class="flex items-center justify-center gap-2 text-sm text-blue-500 opacity-0
               group-hover:opacity-100 transition-opacity">
                 <span>Browse Products</span>
                 <i class="fa-solid fa-arrow-right"></i>

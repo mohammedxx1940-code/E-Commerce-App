@@ -6,12 +6,12 @@ shadow-red-500 hover:shadow-xl hover:border-red-700 transition-all duration-300 
     <img [src]="category().image" [alt]="category().name" class="size-full object-cover 
     group-hover:scale-110 transition-transform duration-500">
   </div>
-  <h3 class="font-bold text-red-500 text-center text-2xl group-hover:text-red-700 transition-colors">
+  <h3 class="font-bold text-red-500 text-center text-sm group-hover:text-red-700 transition-colors">
     {{category().name}}
   </h3>
   <div class="flex justify-center items-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
     <span [routerLink]="['/categories', category()._id, 'subcategories']" 
-    class="text-xl text-blue-500 flex items-center gap-1">
+    class="text-base text-blue-500 flex items-center gap-1">
         View Subcategories <i class="fa-solid fa-arrow-right"></i>
     </span>
   </div>
